@@ -1,35 +1,22 @@
-import { createStore } from 'redux';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const increaseCounterAction = () => {
-  return {
-    type: 'increaseCounter',
-    payload: { step: 2 },
-  };
-};
-const setCounterAction = (value) => {
-  return {
-    type: 'setCounter',
-    payload: { value: value },
-  };
-};
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './reducers';
 
-const store = createStore(() => {
-  return 'state';
-});
-
-console.log(store.getState());
+const store = createStore(reducers);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App store={store} />
+    <Provider store={store}>
+      <App store={store} />
+    </Provider>
   </React.StrictMode>
 );
-// wyświetla stan magazyni,
-// w konsoli zobaczymy 'state'
-// czyli to, co zwraca funkcja
-// przekazana przez parametr
-// root
+
+reportWebVitals();
