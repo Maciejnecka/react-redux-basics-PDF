@@ -3,6 +3,7 @@ import './App.css';
 
 import { connect } from 'react-redux';
 import { increaseCounterAction } from './actions/counter';
+import Form from './Form';
 
 class App extends React.Component {
   handleIncrease = (event) => {
@@ -15,6 +16,7 @@ class App extends React.Component {
       <section>
         {counter}
         <button onClick={this.handleIncrease}>increase</button>
+        <Form />
       </section>
     );
   }
