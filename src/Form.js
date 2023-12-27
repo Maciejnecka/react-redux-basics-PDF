@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCounterAction } from './actions/counter';
+import { actions } from './store/index';
 
 const Form = () => {
   const counter = useSelector((state) => state.counter);
@@ -10,7 +10,7 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Uruchom akcje [setCounter]');
-    dispatch(setCounterAction(Number(inputCounter)));
+    dispatch(actions.set({ value: Number(inputCounter) }));
   };
 
   return (

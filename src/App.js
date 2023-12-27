@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { increaseCounterAction } from './actions/counter';
+import { actions } from './store/index';
 import Form from './Form';
 
 class App extends React.Component {
@@ -29,7 +29,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapActionToProps = {
-  onIncrease: increaseCounterAction,
+  onIncrease: actions.increase,
 };
 
 export default connect(mapStateToProps, mapActionToProps)(App);
